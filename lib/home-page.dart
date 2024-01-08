@@ -11,16 +11,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<int> numb = [0, 1];
-  List<int> img = [0, 1];
+  List<int> numb = [1];
+
+  ///[list to create list for numbers]
+  List<int> img = [1];
+
+  ///[list to create list for images]
 
   void _incrementNumb() {
+    ///[logic to increse number by +1]
     setState(() {
       numb.add(numb.last + 1);
     });
   }
 
   void _incrementImg() {
+    ///[logic to increse images by +1]
     setState(() {
       img.add(img.last + 1);
     });
@@ -42,10 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           children: [
             //
+
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.13,
               height: double.maxFinite,
               child: ListView.builder(
+                ///[here is the list builder for numbers]
                 itemCount: numb.length,
                 itemBuilder: (context, index) {
                   return SizedBox(
@@ -68,10 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
               width: MediaQuery.of(context).size.width * 0.792,
               height: double.maxFinite,
               child: ListView.builder(
+                ///[here is the list builder for images]
+
                 itemCount: img.length, // Display only one image
                 itemBuilder: (context, index) {
                   return Image.network(
-                    'https://source.unsplash.com/random/1080x720', // Adjust size as needed
+                    'https://source.unsplash.com/random/1080x720',
+
+                    ///[here is the link to generete random image from unsplash.com]
                     fit: BoxFit.cover,
                     height: 60,
                   );
@@ -86,6 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           InkWell(
+            ///[here is the button for numbers, calls function for increament in numb's list]
+
             onTap: _incrementNumb,
             child: Container(
               height: 60,
@@ -100,8 +114,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          SizedBox(height: 20),
+          //
+          const SizedBox(height: 20),
+          //
           InkWell(
+            ///[here is the button for numbers, calls function for increament in img's list]
             onTap: _incrementImg,
             child: Container(
               height: 60,
